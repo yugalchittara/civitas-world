@@ -6,4 +6,6 @@ rg -n -S -i --hidden \
   --glob '!node_modules' \
   --glob '!.next' \
   --glob '!.next-dev' \
+  --glob '!*.md' \
+  --glob '!package-lock.json' \
   '(key|secret|token|password|private|signing|DATABASE_URL|NEXT_PUBLIC|WORLD|SUPABASE)' .
