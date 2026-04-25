@@ -1,0 +1,31 @@
+{
+  "sourceRepo": "/Users/yugalchittara/Documents/Human_trust_registry",
+  "publicRepo": "civitas-world-demo",
+  "purpose": "Standalone public World-facing Civitas demo",
+  "included": [
+    "src/app/mini/**",
+    "src/app/api/nonce/route.ts",
+    "src/app/api/rp-signature/route.ts",
+    "src/app/api/verify-proof/route.ts",
+    "src/app/api/complete-siwe/route.ts",
+    "src/app/api/mini-auth/**",
+    "src/app/api/human-verification/**",
+    "src/lib/mini-auth.ts",
+    "src/lib/world-id-environment.ts",
+    "src/lib/human-verification.ts",
+    "src/components/mini/**",
+    "src/components/human-verification/**",
+    "src/components/ui/button.tsx",
+    "src/app/layout.tsx",
+    "src/app/globals.css",
+    "src/app/page.tsx",
+    "src/app/reporter-verification/page.tsx"
+  ],
+  "excluded": [
+    "all private Civitas backend modules",
+    "all admin/moderation/scoring dashboards",
+    "all private incident/reporting flows",
+    "all database migrations and Prisma runtime",
+    "all secrets or production env files"
+  ]
+}
