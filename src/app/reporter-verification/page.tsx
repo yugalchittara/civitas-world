@@ -1,18 +1,16 @@
 import Link from "next/link";
-import { ShieldCheck } from "lucide-react";
+import { BadgeCheck, ShieldCheck } from "lucide-react";
 import { WorldIdVerificationCard } from "@/components/human-verification/world-id-verification-card";
 import { getUnifiedHumanVerificationSummary } from "@/lib/human-verification";
 
-function statusTone(status: string) {
-  if (status === "VERIFIED") return "border-[#C4D2C8] bg-[#E4EFE6] text-[#2F6B4F]";
-  if (status === "PENDING") return "border-[#E6D6B8] bg-[#F7EDDB] text-[#7A5C1E]";
-  if (status === "FAILED") return "border-[#EEC7C0] bg-[#FBEAEA] text-[#8A3A32]";
-  return "border-[var(--border)] bg-[var(--soft-section)] text-[var(--secondary-text)]";
+function statusTone(isVerified: boolean) {
+  if (isVerified) return "border-[#C4D2C8] bg-[#E4EFE6] text-[#2F6B4F]";
+  return "border-[#EEC7C0] bg-[#FBEAEA] text-[#8A3A32]";
 }
 
 export default async function ReporterVerificationPage() {
   const humanVerification = await getUnifiedHumanVerificationSummary();
-  const status = humanVerification.isVerified ? "VERIFIED" : "PENDING";
+  const isVerified = humanVerification.isVerified;
 
   return (
     <main className="mx-auto min-h-screen max-w-4xl px-4 py-8 sm:px-6 lg:px-8">
@@ -47,8 +45,9 @@ export default async function ReporterVerificationPage() {
               state local to this standalone repo.
             </p>
 
-            <div className={`rounded-2xl border px-4 py-3 text-sm font-semibold ${statusTone(status)}`}>
-              Current status: {status.toLowerCase()}
+            <div className={`inline-flex items-center gap-2 rounded-2xl border px-4 py-3 text-sm font-semibold ${statusTone(isVerified)}`}>
+              {isVerified ? <BadgeCheck className="h-4 w-4" /> : <ShieldCheck className="h-4 w-4" />}
+              {isVerified ? "World ID verified" : "Not verified"}
             </div>
 
             <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4">
