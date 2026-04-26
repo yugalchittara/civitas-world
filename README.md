@@ -7,6 +7,10 @@
 
 Civitas is a **trust infrastructure layer** that turns real-world interactions into structured, evidence-backed signals — helping people and systems make decisions *before* money, work, or reputation is at risk.
 
+Live app: https://civitas1.vercel.app/
+World Mini app: https://world.org/mini-app?app_id=app_ce46781a1921a85c2c39b59ff20b07ac&path=&draft_id=meta_4392b73c9cf965cd020eba63b2390821
+Repo: https://github.com/yugalchittara/civitas-world
+
 ---
 
 ## 🧠 The Problem
@@ -200,3 +204,6 @@ cd civitas-world
 npm install
 cp .env.example .env.local
 npm run dev
+
+
+
